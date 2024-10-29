@@ -22,8 +22,9 @@ export const AddItemForm = ({ addItem, disabled = false }: Props) => {
           setTitle("")
         })
         .catch((err: BaseResponse) => {
-          console.log(err)
-          setError(err.messages[0])
+          if (err.messages) {
+            setError(err.messages[0])
+          }
         })
     } else {
       setError("Title is required")

@@ -8,7 +8,10 @@ import { AppDispatch } from "app/store"
  * @param {AppDispatch} dispatch - Функция dispatch из библиотеки Redux для отправки actions
  * @returns {void} - Данная функция ничего не возвращает
  */
-export const handleServerNetworkError = (err: unknown, dispatch: AppDispatch): void => {
+export const handleServerNetworkError = (
+  err: unknown,
+  dispatch: AppDispatch,
+): void => {
   let errorMessage = "Some error occurred"
   // ❗Проверка на наличие axios ошибки
   if (axios.isAxiosError(err)) {

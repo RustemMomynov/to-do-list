@@ -5,7 +5,11 @@ import {
   isRejected,
   PayloadAction,
 } from "@reduxjs/toolkit"
-import { todolistsThunks } from "features/todolistsList/model/todolistsSlice"
+import { tasksThunks } from "features/todolistsList/model/tasksSlice"
+import {
+  todolistsActions,
+  todolistsThunks,
+} from "features/todolistsList/model/todolistsSlice"
 
 const slice = createSlice({
   name: "app",
@@ -39,8 +43,22 @@ const slice = createSlice({
       .addMatcher(isFulfilled, (state) => {
         state.status = "succeeded"
       })
-      .addMatcher(isRejected, (state) => {
+      .addMatcher(isRejected, (state, action: any) => {
         state.status = "failed"
+        if (
+          action.type === todolistsThunks.addTodolist.rejected.type ||
+          action.type === tasksThunks.addTask.rejected.type
+        ) {
+          return
+        }
+
+        if (action.payload) {
+          state.error = action.payload.messages[0]
+        } else {
+          state.error = action.error.message
+            ? action.error.message
+            : "Some error occurred"
+        }
       })
   },
   selectors: {

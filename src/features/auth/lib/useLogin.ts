@@ -32,8 +32,8 @@ export const useLogin = () => {
       return errors
     },
     initialValues: {
-      email: "",
-      password: "",
+      email: "free@samuraijs.com",
+      password: "free",
       rememberMe: false,
     },
     onSubmit: (values, formikHelpers: FormikHelpers<LoginParamsType>) => {
