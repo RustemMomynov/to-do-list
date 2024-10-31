@@ -16,7 +16,7 @@ export const Tasks = ({ todolist }: Props) => {
   )
 
   return (
-    <div>
+    <div style={{ margin: "20px 0" }}>
       {tasksForTodolist.map((t) => (
         <Task key={t.id} task={t} todolistId={todolist.id} />
       ))}

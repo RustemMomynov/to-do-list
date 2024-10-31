@@ -54,17 +54,29 @@ export const Task = ({ task, todolistId }: Props) => {
   const isTaskCompleted = status === TaskStatuses.Completed
 
   return (
-    <div key={taskId} className={isTaskCompleted ? s.isDone : ""}>
+    <div
+      key={taskId}
+      className={isTaskCompleted ? s.isDone : ""}
+      style={{ display: "flex" }}
+    >
       <Checkbox
         checked={isTaskCompleted}
         color="primary"
         onChange={handleUpdateTaskStatus}
       />
-
-      <EditableSpan value={title} onChange={handleUpdateTaskTitle} />
-      <IconButton onClick={handleRemoveTask}>
-        <Delete />
-      </IconButton>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          width: "100%",
+        }}
+      >
+        <EditableSpan value={title} onChange={handleUpdateTaskTitle} />
+        <IconButton onClick={handleRemoveTask}>
+          <Delete />
+        </IconButton>
+      </div>
     </div>
   )
 }

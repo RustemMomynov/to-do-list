@@ -45,7 +45,7 @@ export const AddItemForm = ({ addItem, disabled = false }: Props) => {
   }
 
   return (
-    <div>
+    <div style={{ display: "flex" }}>
       <TextField
         variant="outlined"
         disabled={disabled}
