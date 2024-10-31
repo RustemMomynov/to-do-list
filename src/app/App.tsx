@@ -1,19 +1,16 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import { useSelector } from "react-redux"
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { HashRouter, Route, Routes } from "react-router-dom"
 import {
   AppBar,
   Button,
   CircularProgress,
   Container,
-  IconButton,
   LinearProgress,
   Toolbar,
   ThemeProvider,
   createTheme,
-  Switch,
 } from "@mui/material"
-import { LogoDev, Menu } from "@mui/icons-material"
 import { useAppDispatch } from "common/hooks"
 import "./App.css"
 import { ErrorSnackbar } from "common/components"
@@ -65,7 +62,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter>
+      <HashRouter>
         <div className="App">
           <ErrorSnackbar />
           <AppBar position="static">
@@ -97,7 +94,7 @@ function App() {
             </Routes>
           </Container>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </ThemeProvider>
   )
 }
