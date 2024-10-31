@@ -26,6 +26,12 @@ export const FilterTasksButtons = ({ todolist }: Props) => {
         variant={filter === "all" ? "outlined" : "text"}
         onClick={() => handleChangeFilter("all")}
         color={"inherit"}
+        sx={{
+          padding: "6px 8px",
+          "&:focus": {
+            outline: "none",
+          },
+        }}
       >
         All
       </Button>
@@ -33,6 +39,12 @@ export const FilterTasksButtons = ({ todolist }: Props) => {
         variant={filter === "active" ? "outlined" : "text"}
         onClick={() => handleChangeFilter("active")}
         color={"primary"}
+        sx={{
+          padding: "6px 8px",
+          "&:focus": {
+            outline: "none",
+          },
+        }}
       >
         Active
       </Button>
@@ -40,6 +52,12 @@ export const FilterTasksButtons = ({ todolist }: Props) => {
         variant={filter === "completed" ? "outlined" : "text"}
         onClick={() => handleChangeFilter("completed")}
         color={"secondary"}
+        sx={{
+          padding: "6px 8px",
+          "&:focus": {
+            outline: "none",
+          },
+        }}
       >
         Completed
       </Button>
